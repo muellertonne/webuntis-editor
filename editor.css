@@ -1,0 +1,233 @@
+/* I hate css and styling so this file is 100% AI slop
+ * Editor-Buttons standardmäßig verstecken */
+.wte-button {
+    display: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    line-height: 1;
+    transition: background 0.15s ease;
+}
+
+/* Buttons nur im Editor-Modus anzeigen */
+.timetable-container.wte-editor-enabled .wte-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* + Button links oben */
+.wte-create-button {
+    width: 30px;
+    height: 30px;
+    font-size: 23px;
+    color: white;
+    background: #258b55;
+    margin: 8px auto;
+}
+
+.wte-create-button:hover {
+    background: #1c7044;
+}
+
+/* Container der Stunden-Buttons */
+.wte-lesson-actions {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    z-index: 1000;
+    display: none;
+    gap: 3px;
+}
+
+/* Buttons innerhalb der Stundenkarte */
+.wte-editor-enabled .wte-lesson-actions {
+    display: flex;
+}
+
+.wte-lesson-actions .wte-button {
+    width: 23px;
+    height: 23px;
+    font-size: 16px;
+    color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+.wte-edit-button {
+    background: #2879c7;
+}
+
+.wte-edit-button:hover {
+    background: #195e9f;
+}
+
+.wte-delete-button {
+    background: #d94343;
+}
+
+.wte-delete-button:hover {
+    background: #ae2929;
+}
+
+/* Frei-Button in der Tages-Kopfzeile */
+.wte-day-button {
+    margin: 5px 0 0;
+    padding: 5px 8px;
+    font-size: 11px;
+    color: white;
+    background: #258b55;
+    white-space: nowrap;
+}
+
+.wte-day-button:hover {
+    background: #1c7044;
+}
+
+/* Hintergrund über der gesamten Seite */
+.wte-modal-backdrop {
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 2147483647 !important;
+
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(0, 0, 0, 0.65);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Eigentliches Dialogfenster */
+.wte-modal {
+    display: flex !important;
+    flex-direction: column;
+    gap: 16px;
+
+    width: 100%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+
+    padding: 24px;
+    box-sizing: border-box;
+
+    background: white;
+    color: #222;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+
+    font-family: Arial, sans-serif;
+}
+
+/* Dialogüberschrift */
+.wte-modal h2 {
+    margin: 0;
+    font-size: 21px;
+}
+
+/* Formularfelder */
+.wte-modal-body {
+    display: block;
+}
+
+.wte-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.wte-field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.wte-field input,
+.wte-field select {
+    width: 100%;
+    min-height: 36px;
+    padding: 7px;
+    box-sizing: border-box;
+
+    border: 1px solid #bbb;
+    border-radius: 5px;
+    background: white;
+    color: #222;
+    font-size: 14px;
+}
+
+/* Dialogbuttons */
+.wte-modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.wte-modal-actions button {
+    border: none;
+    border-radius: 6px;
+    padding: 9px 18px;
+
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.wte-modal-cancel {
+    background: #ddd;
+    color: #222;
+}
+
+.wte-modal-save {
+    background: #258b55;
+    color: white;
+}
+
+.wte-modal-save:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+/* Auf schmalen Bildschirmen einspaltig */
+@media (max-width: 500px) {
+    .wte-form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Kennzeichnung des Unterrichtstyps */
+.wte-type-label {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    z-index: 5;
+
+    padding: 2px 5px;
+    border-radius: 3px;
+
+    background: rgba(0, 0, 0, 0.65);
+    color: white;
+
+    font-size: 10px;
+    font-weight: bold;
+    pointer-events: none;
+}
+
+/* Kennzeichnung freier Tage */
+.wte-free-day-indicator {
+    margin-top: 5px;
+    padding: 4px 7px;
+
+    border-radius: 4px;
+    background: #258b55;
+    color: white;
+
+    font-size: 11px;
+    font-weight: bold;
+    white-space: normal;
+}

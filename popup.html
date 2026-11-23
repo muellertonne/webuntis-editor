@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="popup.css">
+        <title>Web Untis timetable editor</title>
+    </head>
+    <body>
+        <h2>WebUntis Editor</h2>
+
+        <label>
+            <input type="checkbox" id="enabled">
+            Show Editor
+        </label>
+
+        <hr>
+
+        <button id="import">Import timetable</button>
+        <button id="export">Export current timetable</button>
+
+        <hr>
+
+        <button id="reset">Reset all changes</button>
+
+        <input type="file" id="fileInput" accept=".json" hidden>
+
+        <div id="dialog" class="dialog-backdrop" hidden>
+            <div class="dialog">
+                <h3 id="dialogTitle"></h3>
+                <p id="dialogMessage"></p>
+
+                <div class="dialog-buttons">
+                    <button id="dialogCancel">Cancel</button>
+                    <button id="dialogConfirm">OK</button>
+                </div>
+            </div>
+        </div>
+
+        <script src="popup.js"></script>
+    </body>
+</html>

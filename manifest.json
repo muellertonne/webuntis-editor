@@ -1,0 +1,39 @@
+{
+    "manifest_version": 3,
+    "name": "Web Untis Timetable Editor",
+    "version": "1.0",
+    "description": "Allows you to edit the lessons shown in the Web Untis timetable. Only works locally, so only you can see your cahnges.",
+
+    "permissions": [
+        "storage",
+        "tabs"
+    ],
+
+    "host_permissions": [
+        "https://*.webuntis.com/*"
+    ],
+
+    "action": {
+        "default_popup": "popup.html",
+        "default_title": "Web Untis Timetable Editor"
+    },
+
+    "content_scripts": [
+        {
+            "matches": [
+                "https://*.webuntis.com/*"
+            ],
+
+            "js": [
+                "timetable-data.js",
+                "editor-ui.js"
+            ],
+
+            "css": [
+                "editor.css"
+            ],
+
+            "run_at": "document_idle"
+        }
+    ]
+}
