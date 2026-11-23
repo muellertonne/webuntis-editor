@@ -7,9 +7,12 @@ A Chrome extension that allows you to edit the web untis timetable.
 
 #### How to install
 
-You need a chromium based browser (e.g. Edge, Chrome, Brave, Opera) to install this extension
+You need a chromium based browser to install this extension
+It is not yet available on the chrome webstore. If you want to install it anyway, do these steps:
 
-1. Download the `.crx` file from the latest release of this repo
-2. In your Browser, navigate to the `chrome://extensions` page
-3. Drag and drop the `.crx` file into the page
-4. Done!
+1. Download the Source Code from this repo
+2. If it is in a `.zip` file, extract it
+3. In your Browser, navigate to `chrome://extensions`
+4. In the top right corner, enable Developer Mode
+5. Click the "Load unpacked" button and select the folder that contains the extension
+6. Done!
