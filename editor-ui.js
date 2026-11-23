@@ -342,8 +342,7 @@ function renderLessonCard(card, lesson) {
     card.style.top = `${top}px`;
     card.style.height = `${height}px`;
 
-    // Die Klasse-Zeile stammt aus der Untis-Vorlage und gehört
-    // nicht zu unseren eigenen Stunden.
+
     if (card.classList.contains("wte-custom-card")) {
         lessonCard.querySelector(
             '[data-testid="lesson-card-resources-with-change-klasse"]'
@@ -394,7 +393,6 @@ function renderLessonCard(card, lesson) {
 
     if (!cards.length) return null;
 
-    // Eine möglichst breite Karte als Vorlage bevorzugen.
     return cards.sort((a, b) =>
         b.getBoundingClientRect().width - a.getBoundingClientRect().width
     )[0];
@@ -457,7 +455,6 @@ function getCustomCardGeometry(column, lesson) {
         })
         .sort((a, b) => a.left - b.left);
 
-    // Freie horizontale Bereiche zwischen bestehenden Karten suchen.
     const gaps = [];
     let cursor = 0;
 
@@ -483,9 +480,7 @@ function getCustomCardGeometry(column, lesson) {
         .filter(gap => gap.width > 24)
         .sort((a, b) => b.width - a.width)[0];
 
-    // Wenn kein freier Bereich existiert, wird die Karte über die
-    // gesamte Spaltenbreite gelegt. Das ist besser als eine willkürliche
-    // halbe Kartenbreite.
+
     const area = largestGap || {
         left: 0,
         width: innerRect.width
@@ -548,9 +543,7 @@ function applyColumnLayout(column, lessons) {
         a.start - b.start || a.end - b.end
     );
 
-    // Zuerst zusammenhängende Gruppen bilden.
-    // Stunden gehören zur selben Gruppe, wenn sie direkt oder
-    // indirekt zeitlich miteinander überlappen.
+
     const groups = [];
     let currentGroup = [];
     let groupEnd = -Infinity;
@@ -571,8 +564,7 @@ function applyColumnLayout(column, lessons) {
     }
 
     for (const group of groups) {
-        // Jede Gruppe erhält so viele Spalten wie tatsächlich
-        // gleichzeitig benötigte Spalten.
+
         const laneEnds = [];
 
         for (const entry of group) {
@@ -1068,7 +1060,6 @@ for (const card of allCards) {
 
         updateRunning = true;
 
-        // Eigene DOM-Änderungen nicht beobachten.
         timetableObserver?.takeRecords();
         timetableObserver?.disconnect();
 
